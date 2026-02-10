@@ -1,7 +1,8 @@
-# [서강대학교 러너톤] AI Code Rule Checker (발전 버전: Agentic)
+# [서강대학교 러너톤] AI Code Rule Checker
 
-많은 인원이 같이 코딩할 때, 팀마다 규칙이 생긴다.  
-규칙을 모두 기억하고 지키기 어렵다는 문제를 해결하기 위해, AI가 팀의 코딩 규칙을 대신 기억하여 틀리면 알려주고 고쳐주는 것을 목표로 한다.
+많은 인원이 같이 코딩할 때, 팀마다 규칙이 생기기 마련입니다.  
+규칙을 모두 기억하고 지키기 어렵다는 문제를 해결하기 위해,
+AI가 팀의 코딩 규칙을 대신 기억하여 틀리면 알려주고 고쳐주도록 만들었습니다.
 
 - 팀 이름: 0001
 - 구성원: 김종원
@@ -9,8 +10,6 @@
 - 기술 스택: Python FastAPI, LangChain Tool Calling Agent, OpenAI Chat model
 
 ## 무엇이 발전했나
-
-교안의 핵심 개념을 프로젝트에 직접 반영한다. fileciteturn0file0
 
 1) Tool Calling Agent
 - 사용자의 입력을 보고 에이전트가 스스로 도구를 선택한다.
@@ -60,6 +59,15 @@ uvicorn app:app --reload
 
 - 헬스체크: `GET /health`
 
+## 브라우저 UI
+
+서버 실행 후 아래 주소로 접속하면 챗봇 형태의 프론트엔드를 사용할 수 있다.
+
+- http://127.0.0.1:8000/
+
+대화 탭: `/agent` 사용
+코드 검사 탭: `/check` 사용
+
 ## API 예시
 
 ### 1) 에이전트
@@ -95,12 +103,3 @@ curl -X POST http://127.0.0.1:8000/check \
 - DB 선택: rules/history를 SQLite/PostgreSQL로 이관
 - IDE 연동: pre-commit hook / GitHub Action / PR comment bot / VSCode extension
 - 규칙 확장: AST 기반 checker(예: unused import, naming convention) 도입
-
-## 브라우저 UI
-
-서버 실행 후 아래 주소로 접속하면 챗봇 형태의 프론트엔드를 사용할 수 있다.
-
-- http://127.0.0.1:8000/
-
-대화 탭: `/agent` 사용
-코드 검사 탭: `/check` 사용
