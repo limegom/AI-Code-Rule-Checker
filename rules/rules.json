@@ -1,0 +1,36 @@
+{
+  "team_name": "0001",
+  "members": [
+    "김종원"
+  ],
+  "rules": [
+    {
+      "id": "PY-IMPORT-ALPHA",
+      "language": "python",
+      "title": "import 순서는 알파벳 순서이다",
+      "description": "파일 상단(import 블록)에서 import/from 라인의 모듈 경로 기준으로 알파벳 오름차순 정렬한다.",
+      "auto_fix": true
+    },
+    {
+      "id": "PY-NO-WILDCARD-IMPORT",
+      "language": "python",
+      "title": "from X import * 를 금지한다",
+      "description": "가독성과 정적 분석을 위해 wildcard import를 사용하지 않는다.",
+      "auto_fix": false
+    },
+    {
+      "id": "PY-NO-TRAILING-WS",
+      "language": "python",
+      "title": "라인 끝 공백을 금지한다",
+      "description": "각 라인의 끝에 불필요한 공백을 두지 않는다.",
+      "auto_fix": true
+    },
+    {
+      "id": "PY-LINE-LENGTH-88",
+      "language": "python",
+      "title": "라인 길이는 88자를 넘기지 않는다",
+      "description": "한 줄이 너무 길면 가독성이 떨어지므로 88자 기준을 권장한다.",
+      "auto_fix": false
+    }
+  ]
+}

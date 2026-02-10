@@ -1,0 +1,69 @@
+# -------------------------
+# Secrets / Env
+# -------------------------
+.env
+.env.*
+!.env.example
+
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.virtualenv/
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+
+# -------------------------
+# Testing / tooling caches
+# -------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.cache/
+.ipynb_checkpoints/
+
+# -------------------------
+# IDE / Editor
+# -------------------------
+.vscode/
+.idea/
+*.iml
+
+# -------------------------
+# OS
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+
+# -------------------------
+# Project-specific (AI Code Rule Checker)
+# -------------------------
+chat_histories/
+chroma_rules/
+# 만약 RULES_CHROMA_DIR를 다른 이름으로 쓴다면 그 디렉토리도 추가
+
+# Optional: local db files (추후 SQLite 쓰면)
+*.sqlite
+*.db

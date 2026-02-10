@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Code Rule Checker</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="title">AI Code Rule Checker</div>
+      <div class="subtitle">팀 규칙을 기억하고, 코드 위반을 찾아 고친다</div>
+    </div>
+
+    <div class="controls">
+      <div class="control">
+        <label for="sessionId">Session</label>
+        <input id="sessionId" type="text" spellcheck="false" />
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="mode tabs">
+        <button id="tabChat" class="tab active" role="tab" aria-selected="true">대화</button>
+        <button id="tabCheck" class="tab" role="tab" aria-selected="false">코드 검사</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Chat -->
+    <section id="chatPanel" class="panel">
+      <div id="chatLog" class="chat-log" aria-live="polite"></div>
+
+      <div class="composer">
+        <textarea id="chatInput" class="input" rows="3" placeholder="규칙을 물어보거나, 코드를 붙여넣고 보내면 된다." spellcheck="false"></textarea>
+        <div class="composer-actions">
+          <button id="btnSend" class="btn primary">보내기</button>
+          <button id="btnClear" class="btn">대화 지우기</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code Check -->
+    <section id="checkPanel" class="panel hidden">
+      <div class="check-grid">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">코드</div>
+            <div class="card-actions">
+              <label class="inline">
+                <input id="autoFix" type="checkbox" checked />
+                auto_fix
+              </label>
+              <label class="inline">
+                <input id="includeDiff" type="checkbox" checked />
+                diff
+              </label>
+              <button id="btnCheck" class="btn primary">검사</button>
+            </div>
+          </div>
+          <textarea id="codeInput" class="code" placeholder="여기에 Python 코드를 붙여넣는다." spellcheck="false"></textarea>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">결과</div>
+            <div class="card-actions">
+              <button id="btnToChat" class="btn">결과를 대화에 붙이기</button>
+            </div>
+          </div>
+
+          <div id="resultSummary" class="summary muted">아직 실행되지 않았다.</div>
+
+          <div class="violations-wrap">
+            <div class="section-title">Violations</div>
+            <div id="violations" class="violations"></div>
+          </div>
+
+          <div class="split">
+            <div class="split-col">
+              <div class="section-title">Fixed Code</div>
+              <pre id="fixedCode" class="pre"></pre>
+            </div>
+            <div class="split-col">
+              <div class="section-title">Unified Diff</div>
+              <pre id="unifiedDiff" class="pre"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>FastAPI + LangChain 기반 MVP+</span>
+      <span class="dot">•</span>
+      <a href="/docs" target="_blank" rel="noreferrer">API Docs</a>
+    </div>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
